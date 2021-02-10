@@ -1,6 +1,6 @@
 # Animated-LandingPage
 
----
+An animated Home page of a website which hase some cool animations. 
 
 ### [Visit Project]( https://animated-landing-page-ecommers.netlify.app )
 <br/>
