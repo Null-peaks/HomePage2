@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore - Null-Peaks</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+      }
+
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 40px;
+        text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+      }
+
+      .button-container {
+        display: flex;
+        gap: 40px;
+      }
+
+      .explore-btn {
+        padding: 20px 50px;
+        font-size: 1.5rem;
+        color: #fff;
+        background: transparent;
+        border: 2px solid #00eaff;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 8px #00eaff;
+        box-shadow: 0 0 20px rgba(0, 234, 255, 0.6),
+                    inset 0 0 10px rgba(0, 234, 255, 0.6);
+        opacity: 1;   /* Make sure buttons are visible by default */
+        transform: scale(1);
+      }
+
+      .explore-btn:hover {
+        background: #00eaff;
+        color: #0f0f0f;
+        box-shadow: 0 0 30px #00eaff, inset 0 0 20px #fff;
+        transform: scale(1.05);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .back {
+        margin-top: 60px;
+        color: #ffcc00;
+        font-size: 1.2rem;
+        text-shadow: 0 0 8px #ffcc00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Choose Your Path</h1>
+    <div class="button-container">
+      <a href="games.html"><button class="explore-btn">🎮 Games</button></a>
+      <a href="tools.html"><button class="explore-btn">🛠 Tools</button></a>
+    </div>
+    <a href="index.html" class="back">⬅ Back to Home</a>
+
+    <!-- Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+      // Animate the title
+      gsap.from("h1", { 
+        y: -100, 
+        opacity: 0, 
+        duration: 1, 
+        ease: "bounce.out" 
+      });
+
+      // Animate buttons (from hidden → visible)
+      gsap.fromTo(".explore-btn",
+        { scale: 0.3, opacity: 0 },   // start smaller + transparent
+        { scale: 1.1, opacity: 1, duration: 0.5, } // end normal
+      );
+
+      // Animate back button
+      gsap.fromTo(".back",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, delay: 1.5, duration: 1 }
+      );
+    </script>
+  </body>
+</html>
